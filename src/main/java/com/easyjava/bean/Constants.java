@@ -41,6 +41,8 @@ public class Constants {
 
     public static String PATH_MAPPERS;
 
+    public static String PATH_MAPPERS_XMLS;
+
     //需要忽略的属性
     public static String IGNORE_BEAN_TOJSON_FIELD;
     public static String IGNORE_BEAN_TOJSON_EXPRESSION;
@@ -90,6 +92,8 @@ public class Constants {
         PATH_UTILS = PATH_BASE + "/" + PACKAGE_UTILS.replace(".", "/");
         PATH_ENUMS = PATH_BASE + "/" + PACKAGE_ENUMS.replace(".", "/");
         PATH_MAPPERS = PATH_BASE + "/" + PACKAGE_MAPPERS.replace(".", "/");
+
+        PATH_MAPPERS_XMLS=PropertiesUtils.getString("path.base")+PATH_RESOURCES+"/"+PACKAGE_MAPPERS.replace(".", "/");
     }
 
     public final static String[] SQL_DATE_TIME_TYPES = new String[]{"datetime", "timestamp"};
@@ -100,6 +104,6 @@ public class Constants {
     public static final String[] SQL_LONG_TYPE = new String[]{"bigint"};
 
     public static void main(String[] args) {
-        System.out.println(PATH_UTILS);
+        System.out.println(PATH_MAPPERS_XMLS);
     }
 }

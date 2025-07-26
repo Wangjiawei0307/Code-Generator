@@ -26,6 +26,19 @@ public class BuildBase {
 
         headerInfoList.add("package " + Constants.PACKAGE_MAPPERS);
         build(headerInfoList, "BaseMapper", Constants.PATH_MAPPERS);
+        headerInfoList.clear();
+
+        headerInfoList.add("package " + Constants.PACKAGE_ENUMS);
+        build(headerInfoList, "PageSize", Constants.PATH_ENUMS);
+        headerInfoList.clear();
+
+        headerInfoList.add("package " + Constants.PACKAGE_QUERY);
+        headerInfoList.add("import " + Constants.PACKAGE_ENUMS + ".PageSize;");
+        build(headerInfoList, "SimplePage", Constants.PATH_QUERY);
+        headerInfoList.clear();
+
+        headerInfoList.add("package " + Constants.PACKAGE_QUERY);
+        build(headerInfoList, "BaseQuery", Constants.PATH_QUERY);
     }
 
     private static void build(List<String> headerInfoList, String fileName, String outputPath) {
@@ -68,9 +81,7 @@ public class BuildBase {
             for (String headerInfo : headerInfoList) {
                 bw.write(headerInfo + ";");
                 bw.newLine();
-                if (headerInfo.contains("package")) {
-                    bw.newLine();
-                }
+                bw.newLine();
             }
             // 逐行读取模板文件内容
             String lineInfo = null;
