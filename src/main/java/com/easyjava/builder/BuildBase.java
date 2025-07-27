@@ -33,12 +33,43 @@ public class BuildBase {
         headerInfoList.clear();
 
         headerInfoList.add("package " + Constants.PACKAGE_QUERY);
-        headerInfoList.add("import " + Constants.PACKAGE_ENUMS + ".PageSize;");
+        headerInfoList.add("import " + Constants.PACKAGE_ENUMS + ".PageSize");
         build(headerInfoList, "SimplePage", Constants.PATH_QUERY);
         headerInfoList.clear();
 
         headerInfoList.add("package " + Constants.PACKAGE_QUERY);
         build(headerInfoList, "BaseQuery", Constants.PATH_QUERY);
+        headerInfoList.clear();
+
+        headerInfoList.add("package " + Constants.PACKAGE_VO);
+        build(headerInfoList, "PaginationResultVO", Constants.PATH_VO);
+        headerInfoList.clear();
+
+        headerInfoList.add("package " + Constants.PACKAGE_ENUMS);
+        build(headerInfoList, "ResponseCodeEnum", Constants.PATH_ENUMS);
+        headerInfoList.clear();
+
+        headerInfoList.add("package " + Constants.PACKAGE_EXCEPTION);
+        headerInfoList.add("import " + Constants.PACKAGE_ENUMS + ".ResponseCodeEnum");
+        build(headerInfoList, "BusinessException", Constants.PATH_EXCEPTION);
+        headerInfoList.clear();
+
+        headerInfoList.add("package " + Constants.PACKAGE_VO);
+        build(headerInfoList, "ResponseVO", Constants.PATH_VO);
+        headerInfoList.clear();
+
+        headerInfoList.add("package " + Constants.PACKAGE_CONTROLLER);
+        headerInfoList.add("import " + Constants.PACKAGE_ENUMS + ".ResponseCodeEnum");
+        headerInfoList.add("import " + Constants.PACKAGE_VO + ".ResponseVO");
+        build(headerInfoList, "ABaseController", Constants.PATH_CONTROLLER);
+        headerInfoList.clear();
+
+        headerInfoList.add("package " + Constants.PACKAGE_CONTROLLER);
+        headerInfoList.add("import " + Constants.PACKAGE_ENUMS + ".ResponseCodeEnum");
+        headerInfoList.add("import " + Constants.PACKAGE_VO + ".ResponseVO");
+        headerInfoList.add("import " + Constants.PACKAGE_EXCEPTION + ".BusinessException");
+        build(headerInfoList, "AGlobalExceptionHandlerController", Constants.PATH_CONTROLLER);
+        headerInfoList.clear();
     }
 
     private static void build(List<String> headerInfoList, String fileName, String outputPath) {
